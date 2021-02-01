@@ -1,4 +1,4 @@
-::StoryTitle
+:: StoryTitle
 City of Ghosts
 
 :: StoryData
@@ -15,7 +15,7 @@ City of Ghosts
 	"zoom": 0.25
 }
 
-::Start
+:: Start
 
 ! City of Ghosts
 
@@ -23,7 +23,7 @@ City of Ghosts
 
 [[Begin the story.|Begin-1]]
 
-::Begin-1
+:: Begin-1
 <<set $char to {}>>
 <<set $char['alert'] to 10>>
 <<set $char['hp'] to 20>>
