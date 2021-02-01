@@ -1,7 +1,5 @@
 # City of Ghosts
 
-![Build](https://github.com/yakuzadave/cityofghosts/workflows/Build/badge.svg?branch=main)
-
 ## The Basics 
 I 've recently started getting back into Twine and this time around I would like to try putting it all together with Twee within VSCode rather than the Twine visual editor for a number of different reasons (among which are making use of VSCode features and extensions to keep me organized and make my life easier).  While there are a lot of interesting formats out there, I plan to put this story together with Sugarcube because it is a good mix of readability and functionality and will allow for the use of Twine custom macros to help streamline some of the features.
 
