@@ -1,0 +1,16 @@
+sugarcube-2:
+  macros:
+    BlankSpeaker:
+      name: BlankSpeaker
+    SetSpeaker:
+      name: SetSpeaker
+    AddSpeaker:
+      name: AddSpeaker
+    AddOption:
+      name: AddOption
+    AddParagraph:
+      name: AddParagraph
+    PassiveSkill:
+      name: PassiveSkill
+    DisplayParagraphs:
+      name: DisplayParagraphs
