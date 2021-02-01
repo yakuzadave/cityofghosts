@@ -1,0 +1,38 @@
+{
+  "name": "cityofghosts",
+  "version": "1.0.0",
+  "description": "This is a reimagining of an old idea to try and find a good way to leverage Discord bots to make a game drawing influence with older MUD/MUSH games and Tabletop PbP, but with the ability to be run entirely in a Discord server.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yakuzadave/cityofghosts.git"
+  },
+  "keywords": [
+    "twine",
+    "interactive-fiction",
+    "rpg",
+    "game",
+    "text-game"
+  ],
+  "author": "Dave Carmocan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yakuzadave/cityofghosts/issues"
+  },
+  "homepage": "https://github.com/yakuzadave/cityofghosts#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "chalk": "^3.0.0",
+    "d20": "^1.4.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs-extra": "^9.0.0",
+    "moment": "^2.24.0",
+    "gulp": "latest",
+    "gulp-gh-pages": "latest"'
+  }
+}
