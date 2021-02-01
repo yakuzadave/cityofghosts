@@ -28,4 +28,4 @@ jobs:
         env:
           PERSONAL_TOKEN: $
           PUBLISH_BRANCH: main
-          PUBLISH_DIR: ./dist
+          PUBLISH_DIR: ./
