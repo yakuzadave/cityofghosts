@@ -1,0 +1,35 @@
+::StoryTitle
+City of Ghosts
+
+:: StoryData
+{
+	"ifid": "D674C58C-DEFA-4F70-B7A2-27742230C0FC",
+	"format": "SugarCube",
+	"format-version": "2.30.1",
+	"start": "Start",
+	"tag-colors": {
+		"plot": "green",
+		"choices": "red",
+		"meta": "blue"
+	},
+	"zoom": 0.25
+}
+
+::Start
+
+! City of Ghosts
+
+!! A Story by Dave Carmocan
+
+[[Begin the story.|Begin-1]]
+
+::Begin-1
+<<set $char to {}>>
+<<set $char['alert'] to 10>>
+<<set $char['hp'] to 20>>
+<<set $char['ac'] to 10>>
+
+
+The harsh lights of the diner are a little much for you to handle after being awake the whole previous night, but you try to push back the headache that you feel slowly creeping in and tell yourself that you just need to get this meeting over and then you can finally make your way to the comfortable bed that is waiting for you at home.  It's been a long week and you are really looking forward to putting this all behind you. This had been the most stressful gig that you had taken in a while and you made a mental note to have some words with your fixer that had reccomended it to you.
+
+The job had been pitched as somthing simple that would not tax your abilites, but you were starting to think that your fixer did not know how to gauge teh difficulty of hacking jobs. You had been tasked to help look into who had been harassing Jonah Glover, who was running for the Mayor of North Oaks. The late night calls and ominous messages had started just over a month ago, but had recently escalated ( and that was when you had been bright in) 
