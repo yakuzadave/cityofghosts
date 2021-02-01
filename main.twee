@@ -354,12 +354,12 @@ if (paragraphs.length > 1) {
 <</nobr>>
 
 :: StoryAuthor {"position":"268,439","size":"100,100"}
-Original story by [Your Name Goes Here]
+Original story by Dave Carmocan
 Twine framework by Pikalex88
 
 
 :: StorySubtitle {"position":"392,432","size":"100,100"}
-A Disco Elysium Fanwork
+A tale in a dark and modern world.
 
 
 :: StoryShare {"position":"526,432","size":"100,100"}
@@ -412,7 +412,25 @@ A Disco Elysium Fanwork
 <</nobr>>
 
 :: Intro [nobr] {"position":"1100,50","size":"100,100"}
-<<SetSpeaker "Pikalex88">>
+<<BlankSpeaker>>
+
 <<AddParagraph "The harsh lights of the diner are a little much for you to handle after being awake the whole previous night, but you try to push back the headache that you feel slowly creeping in and tell yourself that you just need to get this meeting over and then you can finally make your way to the comfortable bed that is waiting for you at home.  It's been a long week and you are really looking forward to putting this all behind you. This had been the most stressful gig that you had taken in a while and you made a mental note to have some words with your fixer that had reccomended it to you.">>
+
 <<AddParagraph "The job had been pitched as somthing simple that would not tax your abilites, but you were starting to think that your fixer did not know how to gauge teh difficulty of hacking jobs. You had been tasked to help look into who had been harassing Jonah Glover, who was running for the Mayor of North Oaks. The late night calls and ominous messages had started just over a month ago, but had recently escalated">>
+
 <<AddParagraph "This was when they had the great idea to bring you in.">>
+
+<<PassiveSkill "Logic">>
+<<AddParagraph "A bad idea on their part but can you really blame them?">>
+
+<<PassiveSkill "Empathy">>
+<<AddParagraph "No need to be harsh.  They are just doing the best they can.">>
+
+<<BlankSpeaker>>
+<<AddParagraph "You struggle to stay awake as you stir in more sugar into the cooling, black coffee and force yourself to drink some.">>
+
+<<PassiveSkill "Reaction Speed" "Legendary" "Failure">>
+<<AddParagraph "The door slamming open causes you to drop your spoon and it clatters loudly as it bounces loudly off your mug and plate before making its way to floor in the most annoying way possible.\n\n \"Shit...\" you murmur under your breath and try manage to refrain from looking behind you at the door. \n\n You already know who it is anyways.">>
+
+<<BlankSpeaker>>
+
