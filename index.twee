@@ -433,7 +433,6 @@ A tale in a dark and modern world.
 <<AddParagraph "The door slamming open causes you to drop your spoon and it clatters loudly as it bounces loudly off your mug and plate before making its way to floor in the most annoying way possible.\n\n \"Shit...\" you murmur under your breath and try manage to refrain from looking behind you at the door. \n\n You already know who it is anyways.">>
 
 <<BlankSpeaker>>
-<<<<<<< HEAD
 <<AddParagraph "Well, either someone was incredibly interested in getting some early morning diner food or his contact had just arrived in the most conspicuous way possible.">>
 <<AddOption "Doing your best to remain calm,  you turn around slightly to see who arrived." "Diner-ContactArrival-TurnAround">> [[|Diner-ContactArrival-TurnAround]]
 <<AddOption "You figure that if it is your contact, he will make himself known.  \n\nBetter to portray the image of a calm and cool detective that he seems to think that you are.  \n\nYou retrive the fallen spoon and focus on drinking your coffee until he comes to the table." "Diner-ContactArrival-DrinkCoffee">> [[|Diner-ContactArrival-DrinkCoffee]]
@@ -451,7 +450,3 @@ A tale in a dark and modern world.
 
 :: Diner-ContactArrival-Conversation [plot nobr]
 <<AddParagraph "\"Normally, I do not like meeting my clients in person, but due to the sensitive nature of the information, I feel more comfortable giving this to you in person, rather than using electronic means.\"">>
-=======
-<<AddParagraph "Either someone has an extreme fondness for diner food at ungodly hours of the morning, or your contact has just arrived.">>
->>>>>>> d1bea74a0ac90d6a4589c9e1378843aaa0624a27
-
