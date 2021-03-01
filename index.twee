@@ -1,8 +1,8 @@
-:: StoryTitle
+:: StoryTitle [config]
 City of Ghosts
 
 
-:: StoryData
+:: StoryData [config]
 {
 	"ifid": "B1E46906-738D-4617-BD15-CEF422C96FD8",
 	"format": "SugarCube",
@@ -211,7 +211,7 @@ $(document).on("keyup", function (e) {
 });
 
 
-:: StoryInit {"position":"268,25","size":"100,100"}
+:: StoryInit [config] {"position":"100,0"}
 <<set $optionmap to new Map()>>
 <<set $motorics to ["composure", "hand/eye coordination", "interfacing", "reaction speed", "savoir faire", "perception", "perception (smell)", "perception (sight)", "perception (taste)", "perception (touch)", "perception (hearing)"]>>
 <<set $intellect to ["conceptualization", "drama", "encyclopedia", "logic", "rhetoric", "visual calculus"]>>
@@ -221,7 +221,7 @@ $(document).on("keyup", function (e) {
 <<set $paraAppendMode to false>>
 
 
-:: PassageHeader {"position":"407,27","size":"100,100"}
+:: PassageHeader [config] {"position":"200,0"}
 <<set $paragraphs to []>>
 <<if $lastoption>>
 @@.speaker.pastchoice;You@@ @@.pastchoice;- $lastoption@@
@@ -229,11 +229,11 @@ $(document).on("keyup", function (e) {
 <</if>>
 
 
-:: PassageFooter {"position":"547,28","size":"100,100"}
+:: PassageFooter [config] {"position":"300,0"}
 <<DisplayParagraphs>>\
 
 
-:: DisplayOptions [nobr] {"position":"546,144","size":"100,100"}
+:: DisplayOptions [config nobr] {"position":"300,100"}
 <ol id="OptionList">
 <<for _optiontext, _optionpassage range $optionmap>>
   <<capture _optionpassage, _optiontext>>
@@ -255,7 +255,7 @@ $(document).on("keyup", function (e) {
 <</widget>>
 <</nobr>>
 
-:: SkillFailure [Widget widget]
+:: SkillFailure [Widget widget] {"position":"0,100"}
 <<nobr>>
 <<widget "SkillFailure">>
 <div id="FailureImg" class="CheckOverlay"></div>
@@ -265,7 +265,7 @@ $(document).on("keyup", function (e) {
 <</widget>>
 <</nobr>>
 
-:: PassiveSkill [Widget widget] {"position":"403,146","size":"100,100"}
+:: PassiveSkill [Widget widget] {"position":"200,100"}
 <<nobr>>
 <<widget "PassiveSkill">>
 <<set _skillname to ($args[0].toLowerCase())>>
@@ -298,7 +298,7 @@ _skillname +
 <</nobr>>
 
 
-:: Speaker [widget] {"position":"272,152","size":"100,100"}
+:: Speaker [widget] {"position":"100,100"}
 <<nobr>>
 <<widget "speaker">>
 @@.speaker;
@@ -308,11 +308,11 @@ $args[0] -
 <</nobr>>
 
 
-:: AddOption [widget] {"position":"273,265","size":"100,100"}
+:: AddOption [widget] {"position":"100,200"}
 \<<widget "AddOption">>\<<run $optionmap.set($args[0], $args[1])>>\<</widget>>\
 
 
-:: DisplayParagraphs [widget] {"position":"401,262","size":"100,100"}
+:: DisplayParagraphs [widget] {"position":"200,200"}
 <<widget "DisplayParagraphs">><<set _paragraph to $paragraphs[0]>>\
 <<run $paragraphs.deleteAt(0)>>\
 <span class="paragraph"><<print _paragraph>></span>
@@ -330,14 +330,14 @@ if (paragraphs.length > 1) {
 <</widget>>
 
 
-:: SetSpeaker [widget] {"position":"674,151","size":"100,100"}
+:: SetSpeaker [widget] {"position":"0,200"}
 <<widget "SetSpeaker">><<set $currentspeaker to ("@@.speaker;" + $args[0] + "@@ - ")>><</widget>>
 
-:: BlankSpeaker [widget] {"position":"1225,100","size":"100,100"}
+:: BlankSpeaker [widget] {"position":"400,0"}
 <<widget "BlankSpeaker">><<set $currentspeaker to "">><</widget>>
 
 
-:: AddParagraph [widget] {"position":"546,268","size":"100,100"}
+:: AddParagraph [widget] {"position":"300,200"}
 <<nobr>>
 <<widget "AddParagraph">>
 <<set _para to "">>
@@ -353,20 +353,20 @@ if (paragraphs.length > 1) {
 <</widget>>
 <</nobr>>
 
-:: StoryAuthor {"position":"268,439","size":"100,100"}
+:: StoryAuthor [config] {"position":"0,300"}
 Original story by Dave Carmocan
 Twine framework by Pikalex88
 
 
-:: StorySubtitle {"position":"392,432","size":"100,100"}
+:: StorySubtitle [config] {"position":"100,300"}
 A tale in a dark and modern world.
 
 
-:: StoryShare {"position":"526,432","size":"100,100"}
-[["@ampepers on Twitter"|https://twitter.com/ampepers]]
+:: StoryShare [config] {"position":"200,300"}
+[["Credit for the style @ampepers on Twitter"|https://twitter.com/ampepers]]
 [["Repo with the source code"|https://github.com/apepers/DiscoElysiumTwineMacros/]]
 
-:: GreenTextWidgets [widget] {"position":"400,600","size":"100,100"}
+:: GreenTextWidgets [config widget] {"position":"300,300"}
 <<nobr>>
 <<widget "TaskComplete">>
 <<run $greentext.push("@@.green;Task complete: " + $args[0] + "@@")>>
@@ -411,7 +411,7 @@ A tale in a dark and modern world.
 
 <</nobr>>
 
-:: Intro [nobr] {"position":"1100,50","size":"100,100"}
+:: Intro [nobr plot] {"position":"600,0"}
 <<BlankSpeaker>>
 
 <<AddParagraph "The harsh lights of the diner are a little much for you to handle after being awake the whole previous night, but you try to push back the headache that you feel slowly creeping in and tell yourself that you just need to get this meeting over and then you can finally make your way to the comfortable bed that is waiting for you at home.  It's been a long week and you are really looking forward to putting this all behind you. This had been the most stressful gig that you had taken in a while and you made a mental note to have some words with your fixer that had reccomended it to you.">>
@@ -433,5 +433,21 @@ A tale in a dark and modern world.
 <<AddParagraph "The door slamming open causes you to drop your spoon and it clatters loudly as it bounces loudly off your mug and plate before making its way to floor in the most annoying way possible.\n\n \"Shit...\" you murmur under your breath and try manage to refrain from looking behind you at the door. \n\n You already know who it is anyways.">>
 
 <<BlankSpeaker>>
-Well, either someone 
+<<AddParagraph "Well, either someone was incredibly interested in getting some early morning diner food or his contact had just arrived in the most conspicuous way possible.">>
+<<AddOption "Doing your best to remain calm,  you turn around slightly to see who arrived." "Diner-ContactArrival-TurnAround">> [[|Diner-ContactArrival-TurnAround]]
+<<AddOption "You figure that if it is your contact, he will make himself known.  \n\nBetter to portray the image of a calm and cool detective that he seems to think that you are.  \n\nYou retrive the fallen spoon and focus on drinking your coffee until he comes to the table." "Diner-ContactArrival-DrinkCoffee">> [[|Diner-ContactArrival-DrinkCoffee]]
+
+:: Diner-ContactArrival-TurnAround [plot nobr] {"position":"500,300"}
+<<BlankSpeaker>>
+<<AddParagraph "You casually turn around in your seat and look at the newcomer to the diner.  It is a tall man with a wide-brimmed hat and suglasses in what looks like a comical attempt to disguise himeself.  \nHe is currently talking to a hostess before she points him in your direction.">>
+<<AddParagraph "When you see him look towards you, you raise your hand in a casual wave and he quickly shuffles over, keeping his head down the whole way.">>
+<<SetSpeaker "CONTACT">>
+<<AddParagraph "\"Let\'s make this quick\", he says as he takes a seat at the booth and looks around nervously.  \"I would prefer if no one recognized me.\"">>
+
+
+:: Diner-ContactArrival-DrinkCoffee [plot nobr] {"position":"700,300"}
+<<BlankSpeaker>>
+
+:: Diner-ContactArrival-Conversation [plot nobr]
+<<AddParagraph "\"Normally, I do not like meeting my clients in person, but due to the sensitive nature of the information, I feel more comfortable giving this to you in person, rather than using electronic means.\"">>
 
