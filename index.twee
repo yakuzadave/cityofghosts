@@ -434,8 +434,8 @@ A tale in a dark and modern world.
 
 <<BlankSpeaker>>
 <<AddParagraph "Well, either someone was incredibly interested in getting some early morning diner food or his contact had just arrived in the most conspicuous way possible.">>
-<<AddOption "Doing your best to remain calm,  you turn around slightly to see who arrived." "Diner-ContactArrival-TurnAround">> [[|Diner-ContactArrival-TurnAround]]
-<<AddOption "You figure that if it is your contact, he will make himself known.  \n\nBetter to portray the image of a calm and cool detective that he seems to think that you are.  \n\nYou retrive the fallen spoon and focus on drinking your coffee until he comes to the table." "Diner-ContactArrival-DrinkCoffee">> [[|Diner-ContactArrival-DrinkCoffee]]
+<<AddOption "Doing your best to remain calm,  you turn around slightly to see who arrived.\n" "Diner-ContactArrival-TurnAround">> [[|Diner-ContactArrival-TurnAround]]
+<<AddOption "You figure that if it is your contact, he will make himself known.  Better to portray the image of a calm and cool detective that he seems to think that you are.  \n\nYou retrive the fallen spoon and focus on drinking your coffee until he comes to the table." "Diner-ContactArrival-DrinkCoffee">> [[|Diner-ContactArrival-DrinkCoffee]]
 
 :: Diner-ContactArrival-TurnAround [plot nobr] {"position":"500,300"}
 <<BlankSpeaker>>
