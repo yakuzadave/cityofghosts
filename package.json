@@ -31,7 +31,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "fs-extra": "^9.0.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "gulp": "latest",
     "gulp-gh-pages": "latest"
   }
