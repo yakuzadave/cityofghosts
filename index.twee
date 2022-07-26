@@ -466,7 +466,7 @@ A tale in a dark and modern world inspired by the game, Disco Elysium.
 <<AddParagraph "If your contact has noticed you looking around the diner, he decides to not show it and continues with the explaination">>
 
 
-:: Diner-ContactArrival-DrinkCoffee [diner nobr] {"position":"700,300"}
+:: Diner-ContactArrival-DrinkCoffee [diner nobr] {"position":"675,250"}
 <<set $caution to 1>>
 <<BlankSpeaker>>
 <<AddParagraph "You focus on drinking the coffee in front of you while keeping an eye on the man.  It's probably nothing, but, in your line of work, it sometimes pays to excercise caution.">>
