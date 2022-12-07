@@ -504,6 +504,8 @@ A tale in a dark and modern world inspired by the game, Disco Elysium.
 <<SetSpeaker "The Contact">>
 <<AddParagraph "He looks dissapointed, but then regains his composure.">>
 <<AddParagraph "\"I hope that you will eventually choose to help, especially considering the gravity of the situation, but I understand if you need some time.\"">>
+<<BlankSpeaker>>
+<<AddParagraph "Trying not to think too much about the sad look that he had in his eyes, you stand from the table and head out of the diner.">>
 
 
 :: Home-Entrance [home nobr] {"position":"500,300"}
