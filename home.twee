@@ -1,0 +1,52 @@
+:: Home-Entrance [home nobr] {"position":"500,300"}
+
+<<BlankSpeaker>>
+<<AddParagraph "You approach a shoddy apartment complex. Home may be too string of a word to describe how you feel about this place, but this has served as a suitable location where you have been passing out on a nightly basis (when you can make it before passing out, that is).">>
+<<AddParagraph "You enter the building and find yourself in a room with a large bed and a desk.  You notice that the room is quite messy, and you notice that there is a small window in the wall that you could use to look out. Unfortunately, unless you enjoy a view of the back alley and some homeless folks squabbling over what discarded items they can find in the bins, there is not much to see out of the window.">>
+
+<<AddOption "You decide to take a nap on the bed." "Home-Entrance-Nap">> [[|Home-Entrance-Nap]]
+<<AddOption "You decide to sit at the desk and look over the information that you have been given." "Home-Entrance-Desk">> [[|Home-Entrance-Desk]]
+
+
+
+
+:: Home-Entrance-Nap [home nobr] {"position":"425,425"}<BlankSpeaker>>
+<<AddParagraph "You decide to take a nap on the bed.  You are not sure how long you have been asleep, but you are woken up by the sound of a knock on the door.">>
+<<AddOption "You get up and answer the door." "Home-Entrance-Nap-AnswerDoor">> [[|Home-Entrance-Nap-AnswerDoor]]
+<<AddOption "You ignore the knocking and go back to sleep." "Home-Entrance-Nap-IgnoreKnocking">> [[|Home-Entrance-Nap-IgnoreKnocking]]
+
+
+
+:: Home-Entrance-Nap-IgnoreKnocking [home nobr] {"position":"600,575"}
+<<BlankSpeaker>>
+<<AddParagraph "You ignore the knocking and go back to sleep.  You are not sure how long you have been asleep, but you are woken up by the sound of a knock on the door.">>
+<<AddOption "You get up and answer the door." "Home-Entrance-Nap-AnswerDoor">> [[|Home-Entrance-Nap-AnswerDoor]]
+<<AddOption "You ignore the knocking and go back to sleep." "Home-Entrance-Nap-IgnoreKnocking">> [[|Home-Entrance-Nap-IgnoreKnocking]]
+
+
+
+:: Home-Entrance-Nap-AnswerDoor-ReadContents [home nobr] {"position":"400,700"}
+<<BlankSpeaker>>
+<<AddParagraph "You open the envelope and read the contents.  It is a letter from the contact with the details of the case.">>
+<<AddParagraph "You read over the letter and then decide to get to work.">>
+<<AddOption "You decide to go to the location that the contact has provided." "Home-Entrance-Nap-AnswerDoor-ReadContents-GoToLocation">> [[|Home-Entrance-Nap-AnswerDoor-ReadContents-GoToLocation]]
+
+
+
+:: Home-Entrance-Desk [home nobr] {"position":"625,425"}
+<<BlankSpeaker>>
+<<AddParagraph "You decide to sit at the desk and look over the information that you have been given.  It is a letter from the contact with the details of the case.">>
+<<AddParagraph "You read over the letter and then decide to get to work.">>
+<<AddOption "You decide to go to the location that the contact has provided." "Home-Entrance-Desk-GoToLocation">> [[|Home-Entrance-Desk-GoToLocation]]
+
+
+
+
+
+
+:: Home-Entrance-Nap-AnswerDoor [home nobr] {"position":"425,575"}
+<<BlankSpeaker>>
+<<AddParagraph "You get up and answer the door.  It is the courier that the contact had mentioned.">>
+<<AddParagraph "He hands you a small envelope and then leaves without saying a word.">>
+<<AddOption "You open the envelope and read the contents." "Home-Entrance-Nap-AnswerDoor-ReadContents">> [[|Home-Entrance-Nap-AnswerDoor-ReadContents]]
+

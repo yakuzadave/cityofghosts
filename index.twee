@@ -222,6 +222,8 @@ $(document).on("keyup", function (e) {
 <<set $health to 100>>
 <<set $sanity to 100>>
 <<set $mood to 50>>
+<<set $alive to true>>
+<<set $demoralized to false>>
 
 
 
@@ -408,6 +410,11 @@ A tale in a dark and modern world inspired by the game, Disco Elysium.
 <<set $paraAppendMode to true>>
 <</widget>>
 
+<<widget "ExperienceGained">>
+<<run $greentext.push("@@.green;Experience gained: " + $args[0] + "@@")>>
+<<set $paraAppendMode to true>>
+<</widget>>
+
 <<widget "LevelUp">>
 <<run $greentext.push("@@.green;Level up!@@")>>
 <<set $paraAppendMode to true>>
@@ -450,70 +457,4 @@ A tale in a dark and modern world inspired by the game, Disco Elysium.
 <<AddParagraph "Well, either someone was incredibly interested in getting some early morning diner food or his contact had just arrived in the most conspicuous way possible.">>
 <<AddOption "Doing your best to remain calm,  you turn around slightly to see who arrived.\n" "Diner-ContactArrival-TurnAround">> [[|Diner-ContactArrival-TurnAround]]
 <<AddOption "You figure that if it is your contact, he will make himself known.  Better to portray the image of a calm and cool detective that he seems to think that you are.  \n\nYou retrive the fallen spoon and focus on drinking your coffee until he comes to the table." "Diner-ContactArrival-DrinkCoffee">> [[|Diner-ContactArrival-DrinkCoffee]]
-
-:: Diner-ContactArrival-TurnAround [diner nobr] {"position":"500,300"}
-<<BlankSpeaker>>
-<<AddParagraph "You casually turn around in your seat and look at the newcomer to the diner.  It is a tall man with a wide-brimmed hat and suglasses in what looks like a comical attempt to disguise himeself.  \nHe is currently talking to a hostess before she points him in your direction.">>
-<<AddParagraph "When you see him look towards you, you raise your hand in a casual wave and he quickly shuffles over, keeping his head down the whole way.">>
-<<SetSpeaker "The Contact">>
-<<AddParagraph "\"Let\'s make this quick\", he says as he takes a seat at the booth and looks around nervously.  \"I would prefer if no one recognized me.\"">>
-
-<<BlankSpeaker>>
-<<AddParagraph "You look around at the empty diner and then back to your contact. You are tempted to say something snide, but you let him continue with what he has to say">>
-<<AddOption "Turns out, it is quite a lot...">> [[Diner-ContactArrival-Conversation]]
-
-<<SetSpeaker "The Contact">>
-<<AddParagraph "If your contact has noticed you looking around the diner, he decides to not show it and continues with the explaination">>
-
-
-:: Diner-ContactArrival-DrinkCoffee [diner nobr] {"position":"675,250"}
-<<set $caution to 1>>
-<<BlankSpeaker>>
-<<AddParagraph "You focus on drinking the coffee in front of you while keeping an eye on the man.  It's probably nothing, but, in your line of work, it sometimes pays to excercise caution.">>
-<<AddParagraph "The man looks around desperately before finally catching your eye.  He hesitates at first, but then heads over to your table, keeping his head down the whole way.">>
-<<SetSpeaker "The Contact">>
-<<AddParagraph "\"Let\'s make this quick\", he says as he takes a seat at the booth and looks around nervously.  \"I would prefer if no one recognized me.\"">>
-<<BlankSpeaker>>
-<<AddParagraph "You look around at the empty diner and then back to your contact. You are tempted to say something snide, but you let him continue with what he has to say">>
-<<AddOption "Turns out, it is quite a lot...">> [[Diner-ContactArrival-Conversation]]
-
-
-:: Diner-ContactArrival-Conversation [diner nobr] {"position":"600,450"}
-<<SetSpeaker "The Contact">>
-<<AddParagraph "\"Normally, I do not like meeting my clients in person, but due to the sensitive nature of the information, I feel more comfortable giving this to you in person, rather than using electronic means.\"">>
-<<AddParagraph "\"Our mutal client, Jonah has been getting threats from an unknown party.  While this is nothing new, it appears that these ones seem to have access information that could be Jonah's undoing.  I am not sure how they managed to secure the information, but we cannot afford to have that get out to the public.\"">>
-<<AddParagraph "\"Listen, I know that you are probably wondering why I would come to you, but your Fixer tells me that you are really getting your hands on information and are not too squeamish about doing what needs to be done to make it happen.  I don't need your answer now, but please tell me that you will consider it at least.\"">>
-
-<<AddOption "You nod, saying nothing.">> [[Diner-ContactArrival-Conversation-Yes]]
-<<AddOption "You hesitate, but eventually say, \"Ok, I'll bite.  Don't get your hopes up though.\"">> [[Diner-ContactArrival-Conversation-Yes]]
-<<AddOption "You shake your head, \"Sorry, this sort of thing is not for me.  You'll have to find someone else.\"">> [[Diner-ContactArrival-Conversation-No]]
-<<AddOption "You sigh, \"Listen, This sort of thing is not something I really do anymore, but I will give it some thought and get back to you.\"">> [[Diner-ContactArrival-Conversation-No]]
-
-
-
-:: Diner-ContactArrival-Conversation-Yes [diner nobr] {"position":"500,600"}
-<<SetSpeaker "The Contact">>
-<<AddParagraph "He visably relaxes and it looks like an almost physical burden has been lifted from his shoulders.">>
-<<AddParagraph "\"Thank you,\" he says. \"I will send a courier to the address that your Fixer has provided with the details, so you have something to start with.\"">>
-
-
-
-
-:: Diner-ContactArrival-Conversation-No [diner nobr] {"position":"700,600"}
-
-<<SetSpeaker "The Contact">>
-<<AddParagraph "He looks dissapointed, but then regains his composure.">>
-<<AddParagraph "\"I hope that you will eventually choose to help, especially considering the gravity of the situation, but I understand if you need some time.\"">>
-<<BlankSpeaker>>
-<<AddParagraph "Trying not to think too much about the sad look that he had in his eyes, you stand from the table and head out of the diner.">>
-
-
-:: Home-Entrance [home nobr] {"position":"500,300"}
-
-<<BlankSpeaker>>
-<<AddParagraph "You approach a shoddy apartment complex. Home may be too string of a word to describe how you feel about this place, but this has served as a suitable location where you have been passing out on a nightly basis (when you can make it before passing out, that is).">>
-<<AddParagraph "You enter the building and find yourself in a room with a large bed and a desk.  You notice that the room is quite messy, and you notice that there is a small window in the wall that you could use to look out. Unfortunately, unless you enjoy a view of the back alley and some homeless folks squabbling over what discarded items they can find in the bins, there is not much to see out of the window.">>
-
-
-
 
