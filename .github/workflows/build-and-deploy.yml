@@ -59,6 +59,7 @@ jobs:
 
       - name: Build game
         run: |
+          mkdir -p dist
           tweego src/ -o ./dist/index.html
           ls -lh ./dist/
 
