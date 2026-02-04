@@ -67,7 +67,7 @@ jobs:
           echo "Build successful - index.html size: $(stat -c%s ./dist/index.html) bytes"
 
       - name: Upload build artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: game-build
           path: dist/
