@@ -107,16 +107,31 @@ The project uses GitHub Actions for automated building and deployment:
 
 1. **Validate** - Checks Twee files for errors
 2. **Build** - Compiles the game
-3. **Deploy** - Deploys to GitHub Pages (on main branch)
+3. **Deploy** - Deploys to GitHub Pages (on main branch only)
 
 The workflow runs on:
 - Push to `main` branch
-- Pull requests to `main` branch
+- Pull requests to `main` branch (validation and build only, no deployment)
+
+### GitHub Pages Deployment
+
+The game is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
+
+**Deployment Configuration:**
+- Uses GitHub's native Pages deployment action (`actions/deploy-pages@v4`)
+- Deploys the compiled `dist/index.html` to GitHub Pages
+- Accessible at: `https://yakuzadave.github.io/cityofghosts/`
+
+**Important Notes:**
+- Deployment only happens on pushes to `main` (not on PRs)
+- The repository must have GitHub Pages enabled in Settings → Pages
+- Source should be set to "GitHub Actions" (not a branch)
 
 ### Viewing CI Results
 
 - Check the **Actions** tab in GitHub
 - Build artifacts are available for download (30-day retention)
+- Deployment status visible in the "github-pages" environment
 
 ## Testing Your Changes
 
