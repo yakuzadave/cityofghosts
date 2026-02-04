@@ -61,7 +61,7 @@ function validateTweeFile(filePath) {
     const openMacros = (passage.match(/<<(?!\/)/g) || []).length;
     const closeMacros = (passage.match(/>>/g) || []).length;
     if (openMacros !== closeMacros) {
-      warnings.push(`Passage ${index}: Mismatched macro delimiters (<</>>)  - ${openMacros} open, ${closeMacros} close`);
+      warnings.push(`Passage ${index}: Mismatched macro delimiters (<</>>) - ${openMacros} open, ${closeMacros} close`);
     }
   });
 
