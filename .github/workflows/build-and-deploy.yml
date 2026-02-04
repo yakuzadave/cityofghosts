@@ -8,12 +8,20 @@ on:
     branches:
       - main
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   validate:
     name: Validate Twee Files
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -34,8 +42,6 @@ jobs:
     name: Build Game
     needs: validate
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -82,11 +88,10 @@ jobs:
     name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
-    if: |
-      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/copilot/build-and-deploy-twee') && 
-      github.event_name == 'push'
-    permissions:
-      contents: write
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -110,9 +115,11 @@ jobs:
           mkdir -p dist
           tweego src/ -o ./dist/index.html
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
+          path: ./dist
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
