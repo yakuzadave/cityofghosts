@@ -13,7 +13,7 @@ City of Ghosts
 
 
 :: Story Stylesheet [stylesheet]
-@import url(http://fonts.googleapis.com/css?family=David+Libre:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=David+Libre:400,700,400italic,700italic);
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap');
 
 html {
@@ -426,8 +426,8 @@ A tale in a dark and modern world inspired by the game, Disco Elysium.
 <<BlankSpeaker>>
 
 <<AddParagraph "The harsh lights of the diner are a little much for you to handle after being awake the whole previous night, but you try to push back the headache that you feel slowly creeping in and tell yourself that you just need to get this meeting over and then you can finally make your way to the comfortable bed that is waiting for you at home.">>
-<<AddParagraph "  It's been a long week and you are really looking forward to putting this all behind you. This had been the most stressful gig that you had taken in a while and you made a mental note to have some words with your fixer that had reccomended it to you.">>
-<<AddParagraph "The job had been pitched as somthing simple that would not tax your abilites, but you were starting to think that your fixer did not know how to gauge the difficulty of hacking jobs.">>
+<<AddParagraph "  It's been a long week and you are really looking forward to putting this all behind you. This had been the most stressful gig that you had taken in a while and you made a mental note to have some words with your fixer that had recommended it to you.">>
+<<AddParagraph "The job had been pitched as something simple that would not tax your abilities, but you were starting to think that your fixer did not know how to gauge the difficulty of hacking jobs.">>
 <<AddParagraph "You had been tasked to help look into who had been harassing Jonah Glover, who was running for the Mayor of North Oaks. The late night calls and ominous messages had started just over a month ago, but had recently escalated">>
 <<AddParagraph "This was when they had the great idea to bring you in.">>
 
@@ -435,7 +435,7 @@ A tale in a dark and modern world inspired by the game, Disco Elysium.
 <<AddParagraph "A bad idea on their part but can you really blame them?">>
 
 <<PassiveSkill "Empathy">>
-<<AddParagraph "No need to be harsh.  They are just doing the best they can.  Think of how desperate they must be if tehy decided to reach out to you.">>
+<<AddParagraph "No need to be harsh.  They are just doing the best they can.  Think of how desperate they must be if they decided to reach out to you.">>
 
 <<BlankSpeaker>>
 <<AddParagraph "You struggle to stay awake as you stir in more sugar into the cooling, black coffee and force yourself to drink some.">>

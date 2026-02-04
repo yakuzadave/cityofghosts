@@ -1,6 +1,6 @@
 :: Diner-ContactArrival-TurnAround [diner nobr] {"position":"700,150"}
 <<BlankSpeaker>>
-<<AddParagraph "You casually turn around in your seat and look at the newcomer to the diner.  It is a tall man with a wide-brimmed hat and suglasses in what looks like a comical attempt to disguise himeself.  \nHe is currently talking to a hostess before she points him in your direction.">>
+<<AddParagraph "You casually turn around in your seat and look at the newcomer to the diner.  It is a tall man with a wide-brimmed hat and sunglasses in what looks like a comical attempt to disguise himself.  \nHe is currently talking to a hostess before she points him in your direction.">>
 <<AddParagraph "When you see him look towards you, you raise your hand in a casual wave and he quickly shuffles over, keeping his head down the whole way.">>
 <<SetSpeaker "The Contact">>
 <<AddParagraph "\"Let\'s make this quick\", he says as he takes a seat at the booth and looks around nervously.  \"I would prefer if no one recognized me.\"">>
@@ -10,7 +10,7 @@
 <<AddOption "Turns out, it is quite a lot...">> [[Diner-ContactArrival-Conversation]]
 
 <<SetSpeaker "The Contact">>
-<<AddParagraph "If your contact has noticed you looking around the diner, he decides to not show it and continues with the explaination">>
+<<AddParagraph "If your contact has noticed you looking around the diner, he decides to not show it and continues with the explanation">>
 
 
 
@@ -49,7 +49,7 @@
 :: Diner-ContactArrival-Conversation-No [diner nobr] {"position":"975,450"}
 
 <<SetSpeaker "The Contact">>
-<<AddParagraph "He looks dissapointed, but then regains his composure.">>
+<<AddParagraph "He looks disappointed, but then regains his composure.">>
 <<AddParagraph "\"I hope that you will eventually choose to help, especially considering the gravity of the situation, but I understand if you need some time.\"">>
 <<BlankSpeaker>>
 <<AddParagraph "Trying not to think too much about the sad look that he had in his eyes, you stand from the table and head out of the diner.">>
@@ -62,7 +62,7 @@
 :: Diner-ContactArrival-DrinkCoffee [diner nobr] {"position":"800,150"}
 <<set $caution to 1>>
 <<BlankSpeaker>>
-<<AddParagraph "You focus on drinking the coffee in front of you while keeping an eye on the man.  It's probably nothing, but, in your line of work, it sometimes pays to excercise caution.">>
+<<AddParagraph "You focus on drinking the coffee in front of you while keeping an eye on the man.  It's probably nothing, but, in your line of work, it sometimes pays to exercise caution.">>
 <<AddParagraph "The man looks around desperately before finally catching your eye.  He hesitates at first, but then heads over to your table, keeping his head down the whole way.">>
 <<SetSpeaker "The Contact">>
 <<AddParagraph "\"Let\'s make this quick\", he says as he takes a seat at the booth and looks around nervously.  \"I would prefer if no one recognized me.\"">>

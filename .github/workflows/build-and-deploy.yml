@@ -1,0 +1,118 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Validate Twee Files
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Twee files
+        run: npm run validate
+
+  build:
+    name: Build Game
+    needs: validate
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.24'
+
+      - name: Install Tweego
+        run: |
+          wget -q https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x64.zip
+          mkdir -p tweego-tmp
+          unzip -q tweego-2.1.1-linux-x64.zip -d tweego-tmp
+          chmod +x tweego-tmp/tweego
+          sudo mv tweego-tmp/tweego /usr/local/bin/
+          rm -rf tweego-tmp tweego-2.1.1-linux-x64.zip
+
+      - name: Verify Tweego installation
+        run: tweego --version || true
+
+      - name: Build game
+        run: |
+          mkdir -p dist
+          tweego src/ -o ./dist/index.html
+          ls -lh ./dist/
+
+      - name: Verify build output
+        run: |
+          if [ ! -f "./dist/index.html" ]; then
+            echo "Error: index.html not generated"
+            exit 1
+          fi
+          echo "Build successful - index.html size: $(stat -c%s ./dist/index.html) bytes"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: game-build
+          path: dist/
+          retention-days: 30
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    if: |
+      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/copilot/build-and-deploy-twee') && 
+      github.event_name == 'push'
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.24'
+
+      - name: Install Tweego
+        run: |
+          wget -q https://github.com/tmedwards/tweego/releases/download/v2.1.1/tweego-2.1.1-linux-x64.zip
+          mkdir -p tweego-tmp
+          unzip -q tweego-2.1.1-linux-x64.zip -d tweego-tmp
+          chmod +x tweego-tmp/tweego
+          sudo mv tweego-tmp/tweego /usr/local/bin/
+          rm -rf tweego-tmp tweego-2.1.1-linux-x64.zip
+
+      - name: Build game for deployment
+        run: |
+          mkdir -p dist
+          tweego src/ -o ./dist/index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages

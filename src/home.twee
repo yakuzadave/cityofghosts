@@ -1,7 +1,7 @@
 :: Home-Entrance [home nobr] {"position":"500,300"}
 
 <<BlankSpeaker>>
-<<AddParagraph "You approach a shoddy apartment complex. Home may be too string of a word to describe how you feel about this place, but this has served as a suitable location where you have been passing out on a nightly basis (when you can make it before passing out, that is).">>
+<<AddParagraph "You approach a shoddy apartment complex. Home may be too strong of a word to describe how you feel about this place, but this has served as a suitable location where you have been passing out on a nightly basis (when you can make it before passing out, that is).">>
 <<AddParagraph "You enter the building and find yourself in a room with a large bed and a desk.  You notice that the room is quite messy, and you notice that there is a small window in the wall that you could use to look out. Unfortunately, unless you enjoy a view of the back alley and some homeless folks squabbling over what discarded items they can find in the bins, there is not much to see out of the window.">>
 
 <<AddOption "You decide to take a nap on the bed." "Home-Entrance-Nap">> [[|Home-Entrance-Nap]]
@@ -10,7 +10,8 @@
 
 
 
-:: Home-Entrance-Nap [home nobr] {"position":"425,425"}<BlankSpeaker>>
+:: Home-Entrance-Nap [home nobr] {"position":"425,425"}
+<<BlankSpeaker>>
 <<AddParagraph "You decide to take a nap on the bed.  You are not sure how long you have been asleep, but you are woken up by the sound of a knock on the door.">>
 <<AddOption "You get up and answer the door." "Home-Entrance-Nap-AnswerDoor">> [[|Home-Entrance-Nap-AnswerDoor]]
 <<AddOption "You ignore the knocking and go back to sleep." "Home-Entrance-Nap-IgnoreKnocking">> [[|Home-Entrance-Nap-IgnoreKnocking]]
