@@ -1,3 +1,6 @@
 node_modules
 .vscode
 template.tw2
+dist
+*.log
+.DS_Store

@@ -4,7 +4,11 @@
   "description": "This is a reimagining of an old idea to try and find a good way to leverage Discord bots to make a game drawing influence with older MUD/MUSH games and Tabletop PbP, but with the ability to be run entirely in a Discord server.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "validate": "node scripts/validate-twee.js",
+    "build": "node scripts/build.js",
+    "prebuild": "npm run validate",
+    "clean": "rm -rf dist"
   },
   "repository": {
     "type": "git",

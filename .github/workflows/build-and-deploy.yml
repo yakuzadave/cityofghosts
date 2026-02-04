@@ -1,0 +1,103 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: Validate Twee Files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate Twee files
+        run: npm run validate
+
+  build:
+    name: Build Game
+    needs: validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Install Tweego
+        run: |
+          go install github.com/tmedwards/tweego@latest
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
+
+      - name: Verify Tweego installation
+        run: tweego --version
+
+      - name: Build game
+        run: |
+          tweego src/ -o ./dist/index.html
+          ls -lh ./dist/
+
+      - name: Verify build output
+        run: |
+          if [ ! -f "./dist/index.html" ]; then
+            echo "Error: index.html not generated"
+            exit 1
+          fi
+          echo "Build successful - index.html size: $(stat -c%s ./dist/index.html) bytes"
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: game-build
+          path: dist/
+          retention-days: 30
+
+  deploy:
+    name: Deploy to GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Go
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.21'
+
+      - name: Install Tweego
+        run: |
+          go install github.com/tmedwards/tweego@latest
+          echo "$(go env GOPATH)/bin" >> $GITHUB_PATH
+
+      - name: Build game for deployment
+        run: |
+          mkdir -p dist
+          tweego src/ -o ./dist/index.html
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages

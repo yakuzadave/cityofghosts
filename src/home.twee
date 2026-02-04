@@ -10,7 +10,8 @@
 
 
 
-:: Home-Entrance-Nap [home nobr] {"position":"425,425"}<BlankSpeaker>>
+:: Home-Entrance-Nap [home nobr] {"position":"425,425"}
+<<BlankSpeaker>>
 <<AddParagraph "You decide to take a nap on the bed.  You are not sure how long you have been asleep, but you are woken up by the sound of a knock on the door.">>
 <<AddOption "You get up and answer the door." "Home-Entrance-Nap-AnswerDoor">> [[|Home-Entrance-Nap-AnswerDoor]]
 <<AddOption "You ignore the knocking and go back to sleep." "Home-Entrance-Nap-IgnoreKnocking">> [[|Home-Entrance-Nap-IgnoreKnocking]]

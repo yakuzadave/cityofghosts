@@ -1,5 +1,33 @@
 # City of Ghosts
 
+## About the Project
+
+This is a reimagining of an old idea to try and find a good way to leverage Discord bots to make a game drawing influence with older MUD/MUSH games and Tabletop PbP, but with the ability to be run entirely in a Discord server.
+
+## Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Validate Twee files
+npm run validate
+
+# Build the game
+npm run build
+
+# Open dist/index.html in your browser to play
+```
+
+For detailed development instructions, see [DEVELOPMENT.md](DEVELOPMENT.md).
+
+## Project Structure
+
+- `src/` - Twee source files for the interactive story
+- `scripts/` - Build and validation scripts
+- `dist/` - Compiled game output (generated)
+- `.github/workflows/` - CI/CD configuration
+
 ## The Basics 
 I 've recently started getting back into Twine and this time around I would like to try putting it all together with Twee within VSCode rather than the Twine visual editor for a number of different reasons (among which are making use of VSCode features and extensions to keep me organized and make my life easier).  While there are a lot of interesting formats out there, I plan to put this story together with Sugarcube because it is a good mix of readability and functionality and will allow for the use of Twine custom macros to help streamline some of the features.
 
