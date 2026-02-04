@@ -82,7 +82,9 @@ jobs:
     name: Deploy to GitHub Pages
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: |
+      (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/copilot/build-and-deploy-twee') && 
+      github.event_name == 'push'
     permissions:
       contents: write
     steps:
