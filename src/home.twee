@@ -1,4 +1,4 @@
-:: Home-Entrance [home nobr] {"position":"500,300"}
+:: Home-Entrance [home nobr] {"position":"725,25"}
 
 <<BlankSpeaker>>
 <<AddParagraph "You approach a shoddy apartment complex. Home may be too strong of a word to describe how you feel about this place, but this has served as a suitable location where you have been passing out on a nightly basis (when you can make it before passing out, that is).">>
@@ -10,7 +10,7 @@
 
 
 
-:: Home-Entrance-Nap [home nobr] {"position":"425,425"}
+:: Home-Entrance-Nap [home nobr] {"position":"850,25"}
 <<BlankSpeaker>>
 <<AddParagraph "You decide to take a nap on the bed.  You are not sure how long you have been asleep, but you are woken up by the sound of a knock on the door.">>
 <<AddOption "You get up and answer the door." "Home-Entrance-Nap-AnswerDoor">> [[|Home-Entrance-Nap-AnswerDoor]]
@@ -18,7 +18,7 @@
 
 
 
-:: Home-Entrance-Nap-IgnoreKnocking [home nobr] {"position":"600,575"}
+:: Home-Entrance-Nap-IgnoreKnocking [home nobr] {"position":"725,150"}
 <<BlankSpeaker>>
 <<AddParagraph "You ignore the knocking and go back to sleep.  You are not sure how long you have been asleep, but you are woken up by the sound of a knock on the door.">>
 <<AddOption "You get up and answer the door." "Home-Entrance-Nap-AnswerDoor">> [[|Home-Entrance-Nap-AnswerDoor]]
@@ -26,7 +26,7 @@
 
 
 
-:: Home-Entrance-Nap-AnswerDoor-ReadContents [home nobr] {"position":"400,700"}
+:: Home-Entrance-Nap-AnswerDoor-ReadContents [home nobr] {"position":"850,150"}
 <<BlankSpeaker>>
 <<AddParagraph "You open the envelope and read the contents.  It is a letter from the contact with the details of the case.">>
 <<AddParagraph "You read over the letter and then decide to get to work.">>
@@ -34,7 +34,7 @@
 
 
 
-:: Home-Entrance-Desk [home nobr] {"position":"625,425"}
+:: Home-Entrance-Desk [home nobr] {"position":"975,25"}
 <<BlankSpeaker>>
 <<AddParagraph "You decide to sit at the desk and look over the information that you have been given.  It is a letter from the contact with the details of the case.">>
 <<AddParagraph "You read over the letter and then decide to get to work.">>
@@ -45,7 +45,7 @@
 
 
 
-:: Home-Entrance-Nap-AnswerDoor [home nobr] {"position":"425,575"}
+:: Home-Entrance-Nap-AnswerDoor [home nobr] {"position":"975,150"}
 <<BlankSpeaker>>
 <<AddParagraph "You get up and answer the door.  It is the courier that the contact had mentioned.">>
 <<AddParagraph "He hands you a small envelope and then leaves without saying a word.">>

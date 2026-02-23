@@ -1,8 +1,8 @@
-:: StoryTitle [config]
+:: StoryTitle [config] {"position":"25,25"}
 City of Ghosts
 
 
-:: StoryData [config]
+:: StoryData [config] {"position":"150,25"}
 {
 	"ifid": "B1E46906-738D-4617-BD15-CEF422C96FD8",
 	"format": "SugarCube",
@@ -12,7 +12,7 @@ City of Ghosts
 }
 
 
-:: Story Stylesheet [stylesheet]
+:: Story Stylesheet [stylesheet] {"position":"25,150"}
 @import url(https://fonts.googleapis.com/css?family=David+Libre:400,700,400italic,700italic);
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow&display=swap');
 
@@ -183,7 +183,7 @@ a.macro-linkreplace {
   100% {opacity: 0; left: 80%}
 }
 
-:: Story JavaScript [script]
+:: Story JavaScript [script] {"position":"150,150"}
 $(document).click(function(e) {
 	if($("span.continueblock").length) {
 		$("span.continueblock").first().removeClass('continueblock');
@@ -211,7 +211,7 @@ $(document).on("keyup", function (e) {
 });
 
 
-:: StoryInit [config] {"position":"100,0"}
+:: StoryInit [config] {"position":"275,25"}
 <<set $optionmap to new Map()>>
 <<set $motorics to ["composure", "hand/eye coordination", "interfacing", "reaction speed", "savoir faire", "perception", "perception (smell)", "perception (sight)", "perception (taste)", "perception (touch)", "perception (hearing)"]>>
 <<set $intellect to ["conceptualization", "drama", "encyclopedia", "logic", "rhetoric", "visual calculus"]>>
@@ -227,7 +227,7 @@ $(document).on("keyup", function (e) {
 
 
 
-:: PassageHeader [config] {"position":"200,0"}
+:: PassageHeader [config] {"position":"275,150"}
 <<set $paragraphs to []>>
 <<if $lastoption>>
 @@.speaker.pastchoice;You@@ @@.pastchoice;- $lastoption@@
@@ -235,11 +235,11 @@ $(document).on("keyup", function (e) {
 <</if>>
 
 
-:: PassageFooter [config] {"position":"300,0"}
+:: PassageFooter [config] {"position":"275,275"}
 <<DisplayParagraphs>>\
 
 
-:: DisplayOptions [config nobr] {"position":"300,100"}
+:: DisplayOptions [config nobr] {"position":"25,275"}
 <ol id="OptionList">
 <<for _optiontext, _optionpassage range $optionmap>>
   <<capture _optionpassage, _optiontext>>
@@ -251,7 +251,7 @@ $(document).on("keyup", function (e) {
 </ol>
 <<set $optionmap to new Map()>>
 
-:: SkillSuccess [Widget widget]
+:: SkillSuccess [Widget widget] {"position":"150,275"}
 <<nobr>>
 <<widget "SkillSuccess">>
 <div id="SuccessImg" class="CheckOverlay"></div>
@@ -261,7 +261,7 @@ $(document).on("keyup", function (e) {
 <</widget>>
 <</nobr>>
 
-:: SkillFailure [Widget widget] {"position":"0,100"}
+:: SkillFailure [Widget widget] {"position":"400,25"}
 <<nobr>>
 <<widget "SkillFailure">>
 <div id="FailureImg" class="CheckOverlay"></div>
@@ -271,7 +271,7 @@ $(document).on("keyup", function (e) {
 <</widget>>
 <</nobr>>
 
-:: PassiveSkill [Widget widget] {"position":"200,100"}
+:: PassiveSkill [Widget widget] {"position":"400,150"}
 <<nobr>>
 <<widget "PassiveSkill">>
 <<set _skillname to ($args[0].toLowerCase())>>
@@ -304,7 +304,7 @@ _skillname +
 <</nobr>>
 
 
-:: Speaker [widget] {"position":"100,100"}
+:: Speaker [widget] {"position":"400,275"}
 <<nobr>>
 <<widget "speaker">>
 @@.speaker;
@@ -314,11 +314,11 @@ $args[0] -
 <</nobr>>
 
 
-:: AddOption [widget] {"position":"100,200"}
+:: AddOption [widget] {"position":"275,400"}
 \<<widget "AddOption">>\<<run $optionmap.set($args[0], $args[1])>>\<</widget>>\
 
 
-:: DisplayParagraphs [widget] {"position":"200,200"}
+:: DisplayParagraphs [widget] {"position":"400,400"}
 <<widget "DisplayParagraphs">><<set _paragraph to $paragraphs[0]>>\
 <<run $paragraphs.deleteAt(0)>>\
 <span class="paragraph"><<print _paragraph>></span>
@@ -336,14 +336,14 @@ if (paragraphs.length > 1) {
 <</widget>>
 
 
-:: SetSpeaker [widget] {"position":"0,200"}
+:: SetSpeaker [widget] {"position":"25,400"}
 <<widget "SetSpeaker">><<set $currentspeaker to ("@@.speaker;" + $args[0] + "@@ - ")>><</widget>>
 
-:: BlankSpeaker [widget] {"position":"400,0"}
+:: BlankSpeaker [widget] {"position":"150,400"}
 <<widget "BlankSpeaker">><<set $currentspeaker to "">><</widget>>
 
 
-:: AddParagraph [widget] {"position":"300,200"}
+:: AddParagraph [widget] {"position":"525,25"}
 <<nobr>>
 <<widget "AddParagraph">>
 <<set _para to "">>
@@ -359,20 +359,20 @@ if (paragraphs.length > 1) {
 <</widget>>
 <</nobr>>
 
-:: StoryAuthor [config] {"position":"0,300"}
+:: StoryAuthor [config] {"position":"525,150"}
 Original story by Dave Carmocan
 Twine framework by Pikalex88
 
 
-:: StorySubtitle [config] {"position":"100,300"}
+:: StorySubtitle [config] {"position":"525,275"}
 A tale in a dark and modern world inspired by the game, Disco Elysium.
 
 
-:: StoryShare [config] {"position":"200,300"}
+:: StoryShare [config] {"position":"525,400"}
 [["Credit for the style @ampepers on Twitter"|https://twitter.com/ampepers]]
 [["Repo with the source code"|https://github.com/apepers/DiscoElysiumTwineMacros/]]
 
-:: GreenTextWidgets [config widget] {"position":"300,300"}
+:: GreenTextWidgets [config widget] {"position":"275,525"}
 <<nobr>>
 <<widget "TaskComplete">>
 <<run $greentext.push("@@.green;Task complete: " + $args[0] + "@@")>>
@@ -422,7 +422,7 @@ A tale in a dark and modern world inspired by the game, Disco Elysium.
 
 <</nobr>>
 
-:: Intro [diner nobr] {"position":"600,0"}
+:: Intro [diner nobr] {"position":"400,525"}
 <<BlankSpeaker>>
 
 <<AddParagraph "The harsh lights of the diner are a little much for you to handle after being awake the whole previous night, but you try to push back the headache that you feel slowly creeping in and tell yourself that you just need to get this meeting over and then you can finally make your way to the comfortable bed that is waiting for you at home.">>
